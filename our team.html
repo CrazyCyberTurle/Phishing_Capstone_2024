@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching nav.html:', error));
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* About Us Page Content */
+        .about-us {
+            max-width: 1200px;
+            margin: 80px auto 20px; /* Adjust margin-top to avoid overlap with fixed nav */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member img {
+            width: 80px; /* Adjust the width to make the image smaller */
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <!-- About Us Page Content -->
+    <section class="about-us">
+        <h1>Meet Our Team</h1>
+
+        <!-- Team Member 1 -->
+        <div class="team-member">
+            <img src="team-member-1.jpg" alt="Team Member 1">
+            <h2>Mark Aguilar</h2>
+            <p>Hello, I'm Mark!</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-member">
+            <img src="team-member-2.jpg" alt="Team Member 2">
+            <h2>Nelson Monroy</h2>
+            <p>Hi, I'm Nelson! </p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-member">
+            <img src="team-member-3.jpg" alt="Team Member 3">
+            <h2>Luisa</h2>
+            <p>Hi, I'm Luisa! I am passionate about pursuing a degree in cybersecurity and obtaining several certifications in ethical hacking. My goal is to contribute to the ever-growing field of cybersecurity by staying updated on the latest technologies and best practices. I believe in the importance of securing digital systems and networks to ensure a safe and resilient digital environment.</p>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-member">
+            <img src="team-member-4.jpg" alt="Team Member 4">
+            <h2>Amadeous Dutchman</h2>
+            <p>Hi, I'm Amadeous! </p>
+        </div>
+
+        <div class="team-member">
+            <img src="team-member-5.jpg" alt="Team Member 4">
+            <h2>Micajah Martinez</h2>
+            <p>Hi, I'm Micajah! </p>
+        </div>
+    </section>
+</body>
+</html>
