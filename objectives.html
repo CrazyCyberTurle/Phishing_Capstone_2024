@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching nav.html:', error));
-        });
-    </script>
-</head>
-<body>
-    <div id="navbar"></div>
-    <!-- Your other content goes here -->
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <title>Objectives</title>
+    </head>
+
+    <body>
+        <script src="header.js"></script>
+        
+        <header>
+            <h2 class="title">Our Objectives</h2>
+        </header>
+
+        <!-- Objectives Section -->
+        <div class="objectives-section">
+            <div class="objective-category">
+                <h3 class="category-title">Short-term Objectives</h3>
+                <ul class="objective-list">
+                    <li>Complete phishing email dataset analysis.</li>
+                    <li>Implement chatbot functionality to assess phishing email believability.</li>
+                    <li>Prepare and conduct Kahoot quiz to test user phishing awareness.</li>
+                </ul>
+            </div>
+
+            <div class="objective-category">
+                <h3 class="category-title">Long-term Objectives</h3>
+                <ul class="objective-list">
+                    <li>Create a professional, user-friendly website to showcase phishing data analysis.</li>
+                    <li>Develop educational material to enhance phishing awareness among end users.</li>
+                    <li>Enhance our phishing detection chatbot using AI to provide more accurate feedback.</li>
+                </ul>
+            </div>
+
+            <div class="objective-category">
+                <h3 class="category-title">Team Objectives</h3>
+                <ul class="objective-list">
+                    <li>Ensure timely collaboration across all team members.</li>
+                    <li>Assist one another to overcome project obstacles.</li>
+                    <li>Conduct regular feedback sessions for continuous improvement.</li>
+                </ul>
+            </div>
+        </div>
+
+    </body>
 </html>
