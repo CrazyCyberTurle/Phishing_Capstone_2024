@@ -1,159 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Quiz</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Quiz</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f9fc;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .navbar {
-            background-color: #2c3e50;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0 15px;
-            font-size: 18px;
-        }
-
+        /* Existing navbar styles */
+       
+    
+        /* Enhanced styles for the quiz */
         .quiz-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        .question {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .choices {
+            margin-top: 100px; /* Space below the fixed navbar */
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px; /* Increased padding */
+            width: 100%;
+            max-width: 900px; /* Increased max width */
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ffffff; /* White background for the container */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+    
+        h1 {
+            color: #711def;
+            text-align: center;
             margin-bottom: 20px;
+            font-size: 2.5em; /* Larger title font */
+            letter-spacing: 1px;
+        }
+    
+        .question-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+    
+        .question p {
+            margin: 10px 0;
+            color: #333;
+            font-size: 1.2em; /* Slightly larger font size for questions */
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px 0;
         }
 
-        .choices button {
-            padding: 10px 20px;
-            font-size: 18px;
+        .button-container button {
+            flex: 1;
+            margin: 0 10px;
+        }
+        
+        button {
+            background-color: #711def;
+            color: white;
+            padding: 12px 20px;
             border: none;
-            border-radius: 5px;
-            background-color: #3498db;
-            color: #fff;
+            border-radius: 25px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+            max-width: 220px; /* Slightly wider buttons */
+            margin: 10px auto;
+            display: block;
+            font-size: 1em; /* Larger button font */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a shadow to buttons */
         }
-
-        .choices button:hover {
-            background-color: #2980b9;
+    
+        button:hover {
+            background-color: #ff5360; /* Highlight color */
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
         }
-
+    
         .result {
-            font-size: 1.5rem;
-            color: #3498db;
             margin-top: 20px;
+            text-align: center;
+            font-size: 1.5em; /* Larger result text */
         }
-
-        .next-btn {
-            padding: 10px 25px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #2ecc71;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: none; /* Initially hidden */
-            margin-top: 20px;
-        }
-
-        .next-btn:hover {
-            background-color: #27ae60;
+    
+        .feedback {
+            display: none;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching nav.html:', error));
-        });
-    </script>
+    
 </head>
 
 <body>
-    <div id="navbar" class="navbar"></div> <!-- Navbar Section -->
+    <script src="header.js"></script>
 
-    <div class="container">
-        <div class="quiz-container">
-            <h1>Can You Spot the Phishing Email?</h1>
-
+    <div class="quiz-container">
+        <h1>Phishing Email Quiz</h1>
+        <div class="question-container">
             <div class="question">
-                <!-- First email example -->
-                <p>Subject: "Your Account Has Been Compromised. Please Reset Your Password Immediately."</p>
-                <p>Sender: <strong>security@bank.com</strong></p>
-                <p>Message: <em>"We have detected unusual activity in your account. To protect your information, click <a href='#'>here</a> to reset your password."</em></p>
+                <p>Subject: "<span id="subject"></span>"</p>
+                <p>Sender: <span id="sender"></span></p>
+                <p>Message: "<span id="message"></span>"</p>
             </div>
-
-            <!-- Buttons for the user to choose whether it's phishing or legitimate -->
-            <div class="choices">
-                <button id="phishing-btn">Phishing Email</button>
-                <button id="legit-btn">Legitimate Email</button>
-            </div>
-
-            <!-- Result message to display if the user was correct or not -->
-            <div class="result" id="result"></div>
-
-            <!-- Button to go to the next question -->
-            <button class="next-btn" id="next-question">Next Question</button>
         </div>
+        <div class="button-container">
+            <button id="phishing-btn">Phishing Email</button>
+            <button id="legit-btn">Legitimate Email</button>
+        </div>
+
+        <div class="result" id="result"></div>
+        <div class="feedback" id="feedback"></div>
+        <button id="next-question" style="display:none;">Next Question</button>
+        <button id="restart-quiz" style="display:none;">Restart Quiz</button>
     </div>
 
     <script>
-        // Example data for the quiz - this could be an array of email examples.
         const emailQuestions = [
             {
                 subject: "Your Account Has Been Compromised. Please Reset Your Password Immediately.",
                 sender: "security@bank.com",
                 message: "We have detected unusual activity in your account. To protect your information, click here to reset your password.",
-                correctAnswer: "Phishing Email"
+                correctAnswer: "Phishing Email",
+                feedback: "Phishing emails often use urgent language like 'compromised' and ask for sensitive actions like resetting a password through a link."
             },
             {
                 subject: "Important Update from Your Bank",
                 sender: "noreply@mybank.com",
                 message: "We have recently updated our terms of service. Please log into your account for details.",
-                correctAnswer: "Legitimate Email"
+                correctAnswer: "Legitimate Email",
+                feedback: "Legitimate emails from your bank often come from addresses like 'noreply' and avoid urging you to click on suspicious links."
             },
             // Add more email examples as needed
         ];
@@ -163,11 +148,19 @@
         const phishingBtn = document.getElementById('phishing-btn');
         const legitBtn = document.getElementById('legit-btn');
         const resultDiv = document.getElementById('result');
+        const feedbackDiv = document.getElementById('feedback');
         const nextBtn = document.getElementById('next-question');
+        const restartBtn = document.getElementById('restart-quiz');
 
-        // Function to handle checking answers
+        function updateQuestion() {
+            document.getElementById('subject').textContent = emailQuestions[currentQuestion].subject;
+            document.getElementById('sender').textContent = emailQuestions[currentQuestion].sender;
+            document.getElementById('message').textContent = emailQuestions[currentQuestion].message;
+        }
+
         function checkAnswer(userAnswer) {
             const correctAnswer = emailQuestions[currentQuestion].correctAnswer;
+            const feedback = emailQuestions[currentQuestion].feedback;
 
             if (userAnswer === correctAnswer) {
                 resultDiv.textContent = "Correct! This is a " + correctAnswer + ".";
@@ -177,10 +170,11 @@
                 resultDiv.style.color = '#e74c3c'; // Red for incorrect
             }
 
+            feedbackDiv.textContent = feedback;
+            feedbackDiv.style.display = 'block'; // Show the feedback
             nextBtn.style.display = 'inline-block'; // Show the next button
         }
 
-        // Event listeners for the buttons
         phishingBtn.addEventListener('click', function () {
             checkAnswer('Phishing Email');
         });
@@ -189,28 +183,36 @@
             checkAnswer('Legitimate Email');
         });
 
-        // Event listener for the next question button
         nextBtn.addEventListener('click', function () {
             currentQuestion++;
 
             if (currentQuestion < emailQuestions.length) {
-                // Update the question content for the next email example
-                document.querySelector('.question p:nth-child(1)').textContent = `Subject: "${emailQuestions[currentQuestion].subject}"`;
-                document.querySelector('.question p:nth-child(2)').textContent = `Sender: ${emailQuestions[currentQuestion].sender}`;
-                document.querySelector('.question p:nth-child(3)').textContent = `Message: "${emailQuestions[currentQuestion].message}"`;
-
-                // Clear the result text and hide the next button
+                updateQuestion();
                 resultDiv.textContent = '';
+                feedbackDiv.style.display = 'none'; // Hide feedback for next question
                 nextBtn.style.display = 'none';
             } else {
                 resultDiv.textContent = 'Quiz Completed!';
-                nextBtn.style.display = 'none';
                 phishingBtn.style.display = 'none';
                 legitBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                restartBtn.style.display = 'inline-block'; // Show the restart button
             }
         });
+
+        restartBtn.addEventListener('click', function () {
+            currentQuestion = 0;
+            updateQuestion();
+            resultDiv.textContent = '';
+            feedbackDiv.style.display = 'none';
+            nextBtn.style.display = 'none';
+            restartBtn.style.display = 'none';
+            phishingBtn.style.display = 'inline-block';
+            legitBtn.style.display = 'inline-block';
+        });
+
+        // Initialize the first question
+        updateQuestion();
     </script>
-
 </body>
-
 </html>
