@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching nav.html:', error));
-        });
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Deep Analysis</title>
 </head>
+
 <body>
-    <div id="navbar"></div>
-    <!-- Your other content goes here -->
+    <section class="main">
+        <section class="left">
+            <p class="title">Deep Analysis on Phishing techniques</p>
+            <p class="msg">Phishing is the most common form of cyber crime, with an estimated 3.4 billion spam emails sent every day. The use of stolen credentials is the most common cause of data breaches. Google blocks around 100 million phishing emails daily. Over 48% of emails sent in 2022 were spam.</p>
+            <button class="cta">Learn More</button>
+        </section>
+
+        <section class="right">
+            <img src="phising.jpg" alt="Landing image">
+        </section>
+    </section>
+
+    <script src="header.js"></script>
 </body>
+
 </html>
