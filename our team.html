@@ -3,110 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching nav.html:', error));
-        });
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Objectives</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            font-family: 'Montserrat', sans-serif;
         }
 
-        /* About Us Page Content */
-        .about-us {
-            max-width: 1200px;
-            margin: 80px auto 20px; /* Adjust margin-top to avoid overlap with fixed nav */
-            text-align: center;
+        .container {
+            width: 80%;
+            margin: 40px auto; /* Center and add top margin */
             padding: 20px;
         }
 
-        .team-member {
-            background-color: #fff;
-            border: 1px solid #ddd;
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .col-md-4 {
+            flex: 1 1 calc(20% - 20px); /* Adjusted for five columns */
+            margin: 10px;
+            box-shadow: none;
             border-radius: 8px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            text-align: center;
+            max-width: 200px; /* Ensures equal width for all columns */
+        }
+
+        .pic {
+            height: 200px; /* Set a fixed height for the image container */
+        }
+
+        .pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the entire container */
+        }
+
+        .team-content {
             padding: 20px;
-            margin: 20px;
-            transition: transform 0.3s ease-in-out;
         }
 
-        .team-member:hover {
-            transform: scale(1.05);
+        .title {
+            font-size: 1.5em;
+            color: #711def;
         }
 
-        .team-member img {
-            width: 80px; /* Adjust the width to make the image smaller */
-            border-radius: 50%;
-            margin-bottom: 10px;
+        .post {
+            color: #9fb5cc;
         }
 
-        h1 {
-            color: #3498db;
-            margin-bottom: 20px;
+        .social {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
         }
 
-        h2 {
-            color: #2c3e50;
+        .social li {
+            margin: 0 10px;
         }
 
-        p {
-            font-size: 18px;
+        .social a {
+            text-decoration: none;
+            color: #711def;
+            font-size: 1.2em;
+        }
+
+        .social a:hover {
+            color: #ff5360;
+        }
+
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex: 1 1 45%; /* Stack on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .col-md-4 {
+                flex: 1 1 100%; /* Full width on very small screens */
+            }
         }
     </style>
 </head>
 <body>
-    <div id="navbar"></div>
-
-    <!-- About Us Page Content -->
-    <section class="about-us">
-        <h1>Meet Our Team</h1>
-
-        <!-- Team Member 1 -->
-        <div class="team-member">
-            <img src="team-member-1.jpg" alt="Team Member 1">
-            <h2>Mark Aguilar</h2>
-            <p>Hello, I'm Mark!</p>
+    <script src="header.js"></script>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src="fer.jpg" alt="Luisa Tovar">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Luisa</h3>
+                        <span class="post">Web Developer</span>
+                        <ul class="social">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src=".jpg" alt="Mark Aguilar">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Mark</h3>
+                        <span class="post">Web Designer</span>
+                        <ul class="social">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src="micajah.jpg" alt="Micajah">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Micajah</h3>
+                        <span class="post">UI/UX Designer</span>
+                        <ul class="social">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src="images/img-4.jpg" alt="Nelson Monroy">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Nelson</h3>
+                        <span class="post">Frontend Developer</span>
+                        <ul class="social">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src="images/img-5.jpg" alt="Amadeous">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Amadeous</h3>
+                        <span class="post">Backend Developer</span>
+                        <ul class="social">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Team Member 2 -->
-        <div class="team-member">
-            <img src="team-member-2.jpg" alt="Team Member 2">
-            <h2>Nelson Monroy</h2>
-            <p>Hi, I'm Nelson! </p>
-        </div>
-
-        <!-- Team Member 3 -->
-        <div class="team-member">
-            <img src="team-member-3.jpg" alt="Team Member 3">
-            <h2>Luisa</h2>
-            <p>Hi, I'm Luisa! I am passionate about pursuing a degree in cybersecurity and obtaining several certifications in ethical hacking. My goal is to contribute to the ever-growing field of cybersecurity by staying updated on the latest technologies and best practices. I believe in the importance of securing digital systems and networks to ensure a safe and resilient digital environment.</p>
-        </div>
-
-        <!-- Team Member 4 -->
-        <div class="team-member">
-            <img src="team-member-4.jpg" alt="Team Member 4">
-            <h2>Amadeous Dutchman</h2>
-            <p>Hi, I'm Amadeous! </p>
-        </div>
-
-        <div class="team-member">
-            <img src="team-member-5.jpg" alt="Team Member 4">
-            <h2>Micajah Martinez</h2>
-            <p>Hi, I'm Micajah! </p>
-        </div>
-    </section>
+    </div>
 </body>
 </html>
