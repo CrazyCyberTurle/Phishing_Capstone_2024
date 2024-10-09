@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     <li><a href="objectives.html">Objectives</a></li>
                     <li><a href ="Analysis.html">Analysis</a></li>
                     <li><a href="examples.html">Examples</a></li>
+                    <li><a href ="chatbot.html">Chatbot</a></li>
                     <li><a href ="our-team.html">About Us</a></li>
+                    
                 </ul>
                 
             </section>
